@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class TextInputWidget extends StatefulWidget {
-  final int? areaWidth;
+  final double? areaWidth;
+  final double? labelWidth;
   final String label;
   final TextEditingController controller;
   final void Function(String)? textChange;
@@ -9,6 +11,7 @@ class TextInputWidget extends StatefulWidget {
   const TextInputWidget({
     super.key,
     this.areaWidth,
+    this.labelWidth,
     required this.label,
     required this.controller,
     this.textChange,
@@ -22,11 +25,9 @@ class _TextInputWidgetState extends State<TextInputWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: widget.areaWidth == null
-          ? double.infinity
-          : widget.areaWidth as double,
+      width: widget.areaWidth ?? double.infinity,
       height: 50,
-      margin: const EdgeInsets.fromLTRB(6, 0, 6, 10),
+      margin: const EdgeInsets.fromLTRB(6, 0, 6, 0),
       decoration: const BoxDecoration(
         color: Colors.white60,
         borderRadius: BorderRadius.all(
@@ -35,21 +36,7 @@ class _TextInputWidgetState extends State<TextInputWidget> {
       ),
       child: Row(
         children: [
-          Container(
-            margin: const EdgeInsets.only(left: 10),
-            width: 55,
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                widget.label,
-                style: const TextStyle(
-                  fontSize: 17,
-                  color: Colors.black45,
-                  decoration: TextDecoration.none,
-                ),
-              ),
-            ),
-          ),
+          const SizedBox(width: 10),
           Expanded(
             child: TextField(
               style: const TextStyle(
@@ -58,8 +45,12 @@ class _TextInputWidgetState extends State<TextInputWidget> {
               ),
               obscureText: widget.label.contains('PW') ? true : false,
               controller: widget.controller,
-              decoration: const InputDecoration(border: InputBorder.none),
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                labelText: widget.label,
+              ),
               onChanged: widget.textChange,
+              inputFormatters: [LengthLimitingTextInputFormatter(25)],
             ),
           ),
         ],

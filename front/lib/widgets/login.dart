@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:front/pages/signup.dart';
 import 'package:front/widgets/check.dart';
 import 'package:front/widgets/text_input.dart';
 import 'package:front/widgets/submit.dart';
@@ -63,6 +64,8 @@ class LoginWidgetState extends State<LoginWidget> {
 
   void navigateSignupPage() {
     debugPrint('move to sign up!');
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const SignUpPage()));
   }
 
   @override
@@ -94,12 +97,16 @@ class LoginWidgetState extends State<LoginWidget> {
               label: 'E-mail',
               controller: emailController,
               textChange: handleEmail,
+              labelWidth: 60,
             ),
+            const SizedBox(height: 10.0),
             TextInputWidget(
               label: 'PW',
               controller: passwordController,
               textChange: handlePassword,
+              labelWidth: 60,
             ),
+            const SizedBox(height: 10.0),
             CheckBoxWidget(
               label: 'remember me',
               onChange: rememberMe,
@@ -110,7 +117,6 @@ class LoginWidgetState extends State<LoginWidget> {
               submit: login,
               isSubmitable: isLoginable,
             ),
-            const SizedBox(height: 2.0),
             SizedBox(
               width: 190,
               height: 50,
@@ -118,7 +124,7 @@ class LoginWidgetState extends State<LoginWidget> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
-                    'Dont have account?',
+                    "Don't have account?",
                     style: TextStyle(color: Colors.white),
                   ),
                   GestureDetector(
