@@ -172,7 +172,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
               isSubmitable: isSignUpable,
             ),
             SizedBox(
-              width: 190,
+              width: 200,
               height: 50,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
