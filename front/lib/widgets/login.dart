@@ -112,7 +112,7 @@ class LoginWidgetState extends State<LoginWidget> {
             ),
             const SizedBox(height: 2.0),
             SizedBox(
-              width: 190,
+              width: 200,
               height: 50,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
