@@ -165,7 +165,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
               labelWidth: 100,
               failReason: 'password incorrect',
             ),
-            const SizedBox(height: 15.0),
+            const SizedBox(height: 30.0),
             SubmitWidget(
               submit: signUp,
               text: 'sign up',
