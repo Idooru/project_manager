@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:front/widgets/banner.dart';
-import 'package:front/widgets/login.dart';
 import 'package:front/widgets/flex.dart';
+import 'package:front/widgets/signup.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
             children: [
               NoneWidget(flex: 1),
               BannerWidget(),
-              LoginWidget(),
+              SignUpWidget(),
             ],
           ),
         ),
